@@ -48,7 +48,15 @@ knit        : slidify::knit2slides
 -Outcome-status-logical(YES or NO)
 
 ---
-  
+
+##Required libraries
+```{r, warning=FALSE}
+library(ROCR)
+library(caret)
+```
+
+---
+
 ## READ DATA
 ```{r, warning=FALSE}
 data<- read.csv("C:/Users/Madan/Documents/gp2.csv",header=TRUE, stringsAsFactors = TRUE)
@@ -436,4 +444,29 @@ plot(roc2, add = TRUE, colorize = TRUE)
 plot(roc4, add = TRUE, colorize = TRUE)##BETTER ROCR
 plot(roc5, add = TRUE, colorize = TRUE)
 ```
+------
+title       : 
+subtitle    : 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
 ---
+
+## Read-And-Delete
+
+1. Edit YAML front matter
+2. Write using R Markdown
+3. Use an empty line followed by three dashes to separate slides!
+
+--- .class #id 
+
+## Slide 2
+
+
+
+
