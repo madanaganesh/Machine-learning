@@ -50,7 +50,7 @@ knit        : slidify::knit2slides
 ---
 
 ##Required libraries
-```{r, warning=FALSE}
+```{r, echo=TRUE, warning=FALSE}
 library(ROCR)
 library(caret)
 ```
@@ -166,6 +166,7 @@ nrow(testing)
 ## MODELING
 ```{r, warning=FALSE}
 ###plain glm model####
+dev.off()
 model_glm<-glm(status~.,data=training,family=binomial(link='logit'))
 pred_glm<-predict(model_glm, newdata=testing)
 cmatrix=table(predict(model_glm, newdata=testing,type='response')>0.5, testing$status)

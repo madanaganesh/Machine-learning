@@ -913,6 +913,15 @@ nrow(testing)
 
 ```r
 ###plain glm model####
+dev.off()
+```
+
+```
+## null device 
+##           1
+```
+
+```r
 model_glm<-glm(status~.,data=training,family=binomial(link='logit'))
 pred_glm<-predict(model_glm, newdata=testing)
 cmatrix=table(predict(model_glm, newdata=testing,type='response')>0.5, testing$status)
@@ -958,11 +967,6 @@ Accuracy #0.7761194
 perf_log <- prediction(pred_glm, testing$status)
 roc <- performance(perf_log, "tpr", "fpr")
 plot(roc, colorize = TRUE)
-```
-
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
-
-```r
 performance(perf_log, "auc")@y.values
 ```
 
@@ -2149,6 +2153,8 @@ plot(roc5, add = TRUE, colorize = TRUE)
 ```
 
 ![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
-------
+-----
+
+
 
 

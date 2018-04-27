@@ -955,7 +955,14 @@ nrow(testing)
   </hgroup>
   <article data-timings="">
     <pre><code class="r">###plain glm model####
-model_glm&lt;-glm(status~.,data=training,family=binomial(link=&#39;logit&#39;))
+dev.off()
+</code></pre>
+
+<pre><code>## null device 
+##           1
+</code></pre>
+
+<pre><code class="r">model_glm&lt;-glm(status~.,data=training,family=binomial(link=&#39;logit&#39;))
 pred_glm&lt;-predict(model_glm, newdata=testing)
 cmatrix=table(predict(model_glm, newdata=testing,type=&#39;response&#39;)&gt;0.5, testing$status)
 dimnames(cmatrix)[[1]] = c(&quot;A&quot;,&quot;B&quot;)
@@ -992,11 +999,7 @@ Precision #0.9482759
 <pre><code class="r">perf_log &lt;- prediction(pred_glm, testing$status)
 roc &lt;- performance(perf_log, &quot;tpr&quot;, &quot;fpr&quot;)
 plot(roc, colorize = TRUE)
-</code></pre>
-
-<p><img src="figure/unnamed-chunk-10-1.png" alt="plot of chunk unnamed-chunk-10"></p>
-
-<pre><code class="r">performance(perf_log, &quot;auc&quot;)@y.values
+performance(perf_log, &quot;auc&quot;)@y.values
 </code></pre>
 
 <pre><code>## [[1]]
@@ -2126,36 +2129,6 @@ plot(roc5, add = TRUE, colorize = TRUE)
 
 <h2><img src="figure/unnamed-chunk-15-1.png" alt="plot of chunk unnamed-chunk-15"></h2>
 
-<p>title       : 
-subtitle    : 
-author      : 
-job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
-widgets     : []            # {mathjax, quiz, bootstrap}
-mode        : selfcontained # {standalone, draft}</p>
-
-<h2>knit        : slidify::knit2slides</h2>
-
-<h2>Read-And-Delete</h2>
-
-<ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
-
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 2</h2>
-  </hgroup>
-  <article data-timings="">
-    
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -2258,12 +2231,6 @@ mode        : selfcontained # {standalone, draft}</p>
       <a href="#" target="_self" rel='tooltip' 
         data-slide=16 title='NA'>
          16
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=17 title='Slide 2'>
-         17
       </a>
     </li>
   </ul>
